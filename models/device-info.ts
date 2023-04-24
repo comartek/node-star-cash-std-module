@@ -38,7 +38,7 @@ export class DeviceInfo {
       deviceInfoInString = deviceInfoInString.substring(1, deviceInfoInString.length - 1);
     }
 
-    const [portName, macAddress, modelName, usbSerialNumber] = deviceInfoInString.split('|');
+    const [modelName, portName, macAddress, usbSerialNumber] = deviceInfoInString.split('|');
 
     return new DeviceInfo({ portName, macAddress, modelName, usbSerialNumber });
   }
