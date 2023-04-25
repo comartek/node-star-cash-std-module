@@ -12,7 +12,8 @@ import { StarCashClient } from "../star-cash-client";
 export function connect(this: StarCashClient, portName: string) {
   const theCommand = this.command;
   return new Observable<BarcodeEvent | CashDrawerEvent | PrinterEvent | ReaderEvent>(function subscribe(subscriber) {
-    const childProcess = spawn(theCommand, ['connect -p ' + portName]);
+    const args = ['connect', '--port', portName];
+    const childProcess = spawn(theCommand, args);
 
     const wsStdOut = new NewLineStream();
     const wsStrErr = new NewLineStream();

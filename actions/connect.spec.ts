@@ -5,7 +5,7 @@ describe('Star Cash Client > Connect', () => {
   it('should able to connect', (done) => {
     const client = new StarCashClient('example-connect.bat');
     let counter = 0;
-    client.connect('hello').subscribe({
+    client.connect('USBPRN:Star POP10').subscribe({
       next(value: ConnectEvent) {
         counter++;
       },

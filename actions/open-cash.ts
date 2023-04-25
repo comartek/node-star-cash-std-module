@@ -7,7 +7,8 @@ import { StarCashClient } from "../star-cash-client";
 export function openCash(this: StarCashClient, portName: string) {
   const theCommand = this.command;
   return new Observable(function subscribe(subscriber) {
-    const childProcess = spawn(theCommand, ['opencash -p ' + portName]);
+    const args = ['opencash', '--port', portName];
+    const childProcess = spawn(theCommand, args);
 
     const wsStdOut = new NewLineStream();
     const wsStrErr = new NewLineStream();
