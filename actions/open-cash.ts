@@ -32,6 +32,7 @@ export function openCash(this: StarCashClient, portName: string) {
       childProcess.unref();
       wsStdOut.destroy();
       wsStrErr.destroy();
+      childProcess.kill();
     };
   })
 

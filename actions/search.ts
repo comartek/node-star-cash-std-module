@@ -30,6 +30,9 @@ export function search(this: StarCashClient) {
 
     return function unsubscribe() {
       childProcess.unref();
+      wsStdOut.destroy();
+      wsStrErr.destroy();
+      childProcess.kill();
     };
   });
 }
